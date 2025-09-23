@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title }} - Private Management</title>
     <meta name="description" content="{{ page.description | default: 'База знаний для управления проектами' }}">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
     <style>
         /* v1.1 - Updated navigation */
         * {
@@ -257,6 +258,19 @@
             border: 1px solid #718096;
         }
 
+        .mermaid {
+            background: #1a202c;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid #4a5568;
+            text-align: center;
+        }
+
+        .mermaid svg {
+            background: #1a202c;
+        }
+
         @media (max-width: 768px) {
             .container {
                 grid-template-columns: 1fr;
@@ -339,5 +353,29 @@
             </div>
         </div>
     </div>
+
+    <script>
+        // Initialize Mermaid with dark theme
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'dark',
+            themeVariables: {
+                primaryColor: '#63b3ed',
+                primaryTextColor: '#f7fafc',
+                primaryBorderColor: '#4299e1',
+                lineColor: '#cbd5e0',
+                secondaryColor: '#4a5568',
+                tertiaryColor: '#2d3748',
+                background: '#1a202c',
+                mainBkg: '#2d3748',
+                secondBkg: '#4a5568',
+                tertiaryBkg: '#1a202c'
+            },
+            flowchart: {
+                htmlLabels: true,
+                curve: 'basis'
+            }
+        });
+    </script>
 </body>
 </html>
