@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Private Management - База знаний</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .card h2 {
+            color: #4a5568;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .card li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card li:last-child {
+            border-bottom: none;
+        }
+
+        .card li a {
+            color: #4299e1;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .card li a:hover {
+            color: #2b6cb0;
+            text-decoration: underline;
+        }
+
+        .emoji {
+            font-size: 1.2em;
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            opacity: 0.8;
+            margin-top: 40px;
+        }
+
+        .stats {
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 30px 0;
+            color: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+
+        .stat {
+            padding: 15px;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Private Management</h1>
+            <p>База знаний для управления проектами и исследования продуктов</p>
+        </div>
+
+        <div class="stats">
+            <div class="stats-grid">
+                <div class="stat">
+                    <span class="stat-number">123</span>
+                    <span class="stat-label">файлов</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">4</span>
+                    <span class="stat-label">основных раздела</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">1</span>
+                    <span class="stat-label">исследование продукта</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">MECE</span>
+                    <span class="stat-label">структурирование</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="cards-grid">
+            <div class="card">
+                <h2><span class="emoji">📚</span> База знаний</h2>
+                <p>Структурированные знания по разработке ПО, управлению проектами и корпоративному праву.</p>
+                <ul>
+                    <li><a href="knowledge/structured-software-development-knowledge.md">Разработка ПО</a></li>
+                    <li><a href="knowledge/structured-options-guide.md">Опционы в корпоративном праве</a></li>
+                    <li><a href="knowledge/customer-development.md">Customer Development</a></li>
+                    <li><a href="knowledge/startup-structure.md">Структура стартапов</a></li>
+                    <li><a href="knowledge/code-architectures.md">Архитектуры кода</a></li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">🔍</span> Product Research</h2>
+                <p>Исследования продуктов, сервисов и технологий с анализом бизнес-моделей и стратегий.</p>
+                <ul>
+                    <li><a href="product-research/notion/overview.md">Notion - Обзор продукта</a></li>
+                    <li><a href="product-research/notion/personal-notes.md">Notion - Персональные заметки</a></li>
+                    <li><a href="product-research/notion/conclusions.md">Notion - Выводы и прогнозы</a></li>
+                    <li><a href="product-research/templates/product-template.md">Шаблон исследования</a></li>
+                    <li><a href="product-research/README.md">О методологии исследований</a></li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">💡</span> Идеи и шаблоны</h2>
+                <p>Система для работы с идеями проектов, включая шаблоны и промпты для анализа.</p>
+                <ul>
+                    <li><a href="pattern/idea-template/readme.md">Шаблон идеи</a></li>
+                    <li><a href="pattern/ideas/2025-08-08-life-os-personal-ai-agent/idea-brief.md">Life OS - AI агент</a></li>
+                    <li><a href="pattern/idea-template/prompts/run-orchestrator.md">Промпты для анализа</a></li>
+                    <li><a href="pattern/scripts/new-idea.sh">Скрипт создания новой идеи</a></li>
+                    <li><a href="pattern/unified-cursor-rules-template.md">Правила Cursor</a></li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2><span class="emoji">⚙️</span> Настройки и конфигурация</h2>
+                <p>Файлы конфигурации, правила и настройки для эффективной работы с проектами.</p>
+                <ul>
+                    <li><a href=".cursorrules">Cursor Rules</a></li>
+                    <li><a href="pattern/leo-cursor-system-prompt.md">Системный промпт</a></li>
+                    <li><a href="pattern/any-project-cursor-rule.md">Универсальные правила</a></li>
+                    <li><a href="files/framework-pf-interview.pdf">Фреймворк PF-интервью</a></li>
+                    <li><a href="files/summary-how-to-start-a-startup-yc.pdf">Как запустить стартап (YC)</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Структурированная база знаний, организованная по принципу MECE</p>
+            <p>Последнее обновление: 2025-09-23</p>
+        </div>
+    </div>
+</body>
+</html>
