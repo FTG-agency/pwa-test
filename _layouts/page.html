@@ -202,11 +202,58 @@
             text-decoration: none;
             margin-bottom: 20px;
             transition: background 0.3s ease;
-            font-weight: 500;
+            font-weight: 600;
+            border: 1px solid #4299e1;
         }
 
         .back-link:hover {
             background: #90cdf4;
+            color: #1a202c;
+            text-decoration: none;
+            border-color: #63b3ed;
+        }
+
+        .bottom-navigation {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #4a5568;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .nav-button {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid;
+        }
+
+        .nav-button.primary {
+            background: #63b3ed;
+            color: #1a202c;
+            border-color: #4299e1;
+        }
+
+        .nav-button.primary:hover {
+            background: #90cdf4;
+            color: #1a202c;
+            border-color: #63b3ed;
+            text-decoration: none;
+        }
+
+        .nav-button.secondary {
+            background: transparent;
+            color: #63b3ed;
+            border-color: #63b3ed;
+        }
+
+        .nav-button.secondary:hover {
+            background: #63b3ed;
+            color: #1a202c;
             text-decoration: none;
         }
 
@@ -272,6 +319,21 @@
             <a href="/test/" class="back-link">← Назад к главной</a>
 
             {{ content }}
+
+            <div class="bottom-navigation">
+                <a href="/test/" class="nav-button primary">🏠 Главная</a>
+                {% if page.title == 'Знания о разработке ПО' %}
+                <a href="/test/knowledge/structured-options-guide" class="nav-button secondary">📋 Опционы →</a>
+                {% elsif page.title == 'Опционы в корпоративном праве' %}
+                <a href="/test/knowledge/structured-software-development-knowledge" class="nav-button secondary">← Разработка ПО</a>
+                <a href="/test/knowledge/customer-development" class="nav-button secondary">Customer Development →</a>
+                {% elsif page.title == 'Customer Development' %}
+                <a href="/test/knowledge/structured-options-guide" class="nav-button secondary">← Опционы</a>
+                <a href="/test/knowledge/startup-structure" class="nav-button secondary">Структура стартапов →</a>
+                {% else %}
+                <a href="/test/" class="nav-button secondary">← К оглавлению</a>
+                {% endif %}
+            </div>
         </div>
     </div>
 </body>
