@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} - Private Management</title>
+    <meta name="description" content="{{ page.description | default: 'База знаний для управления проектами' }}">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 30px;
+        }
+
+        .sidebar {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            height: fit-content;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 20px;
+        }
+
+        .sidebar h3 {
+            color: #4a5568;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar li {
+            margin-bottom: 8px;
+        }
+
+        .sidebar a {
+            color: #4299e1;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .sidebar a:hover {
+            color: #2b6cb0;
+            text-decoration: underline;
+        }
+
+        .content {
+            background: white;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .breadcrumb a {
+            color: #4299e1;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .content h1 {
+            color: #2d3748;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+            border-bottom: 3px solid #4299e1;
+            padding-bottom: 10px;
+        }
+
+        .content h2 {
+            color: #4a5568;
+            margin: 30px 0 15px 0;
+            font-size: 1.8rem;
+        }
+
+        .content h3 {
+            color: #4a5568;
+            margin: 25px 0 10px 0;
+            font-size: 1.4rem;
+        }
+
+        .content h4 {
+            color: #4a5568;
+            margin: 20px 0 10px 0;
+            font-size: 1.2rem;
+        }
+
+        .content p {
+            margin-bottom: 15px;
+            color: #4a5568;
+        }
+
+        .content ul, .content ol {
+            margin: 15px 0 15px 20px;
+        }
+
+        .content li {
+            margin-bottom: 8px;
+            color: #4a5568;
+        }
+
+        .content blockquote {
+            border-left: 4px solid #4299e1;
+            padding-left: 20px;
+            margin: 20px 0;
+            font-style: italic;
+            color: #666;
+        }
+
+        .content code {
+            background: #f7fafc;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+            color: #e53e3e;
+        }
+
+        .content pre {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        .content pre code {
+            background: none;
+            padding: 0;
+            color: inherit;
+        }
+
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .content th, .content td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .content th {
+            background: #f7fafc;
+            font-weight: 600;
+            color: #4a5568;
+        }
+
+        .content a {
+            color: #4299e1;
+            text-decoration: none;
+        }
+
+        .content a:hover {
+            text-decoration: underline;
+        }
+
+        .back-link {
+            display: inline-block;
+            background: #4299e1;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: background 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: #2b6cb0;
+            text-decoration: none;
+        }
+
+        .meta {
+            background: #f7fafc;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+                padding: 15px;
+            }
+            
+            .sidebar {
+                position: static;
+                order: 2;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .content h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h3>🗂️ Навигация</h3>
+            <ul>
+                <li><a href="/test/">🏠 Главная</a></li>
+                <li><a href="/test/knowledge/structured-software-development-knowledge">📚 Разработка ПО</a></li>
+                <li><a href="/test/knowledge/structured-options-guide">📋 Опционы</a></li>
+                <li><a href="/test/knowledge/customer-development">🔍 Customer Development</a></li>
+                <li><a href="/test/knowledge/startup-structure">🚀 Структура стартапов</a></li>
+                <li><a href="/test/product-research/notion/overview">🔍 Исследование Notion</a></li>
+                <li><a href="/test/pattern/idea-template/readme">💡 Шаблоны идей</a></li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <div class="breadcrumb">
+                <a href="/test/">Главная</a> > {{ page.title }}
+            </div>
+
+            {% if page.version %}
+            <div class="meta">
+                <strong>Версия:</strong> {{ page.version }} | 
+                <strong>Создан:</strong> {{ page.created }} | 
+                <strong>Обновлён:</strong> {{ page.updated }}
+            </div>
+            {% endif %}
+
+            <a href="/test/" class="back-link">← Назад к главной</a>
+
+            {{ content }}
+        </div>
+    </div>
+</body>
+</html>

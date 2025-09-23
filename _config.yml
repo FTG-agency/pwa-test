@@ -1,0 +1,77 @@
+# GitHub Pages Configuration
+title: Private Management - База знаний
+description: Структурированная база знаний для управления проектами и исследования продуктов
+author: Leo Pavlinskiy
+baseurl: "/test"
+url: "https://leopavlinskiy.github.io"
+
+# Jekyll settings
+markdown: kramdown
+highlighter: rouge
+theme: minima
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Exclude files from processing
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+
+# Include files
+include:
+  - _pages
+
+# Collections
+collections:
+  knowledge:
+    output: true
+    permalink: /:name/
+  product-research:
+    output: true
+    permalink: /:name/
+  patterns:
+    output: true
+    permalink: /:name/
+
+# Default front matter
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+  - scope:
+      path: ""
+      type: "knowledge"
+    values:
+      layout: "page"
+  - scope:
+      path: ""
+      type: "product-research"
+    values:
+      layout: "page"
+  - scope:
+      path: ""
+      type: "patterns"
+    values:
+      layout: "page"
+
+# SEO
+social:
+  name: Leo Pavlinskiy
+  links:
+    - https://github.com/LeoPavlinskiy
+
+# Build settings
+sass:
+  style: compressed

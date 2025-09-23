@@ -1,8 +1,11 @@
-# Customer Development: методики и ресурсы
-
-**Версия:** 1.0  
-**Создан:** 2025-09-23  
-**Обновлён:** 2025-09-23  
+---
+layout: page
+title: Customer Development
+description: Методики и ресурсы для проведения Customer Development исследований
+version: 1.0
+created: 2025-09-23
+updated: 2025-09-23
+---  
 
 ## Ресурсы и ссылки
 
