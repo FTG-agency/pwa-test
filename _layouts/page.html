@@ -352,11 +352,13 @@
 
         .nav-button.prev,
         .nav-button.next {
-            width: 80px;
+            width: 90px;
             text-align: center;
             display: flex;
             align-items: center;
             justify-content: center;
+            white-space: nowrap;
+            font-size: 0.9rem;
         }
 
         .nav-button.primary {
@@ -611,7 +613,7 @@
                         {% endif %}
                     {% endfor %}
                     <a href="/test/knowledge/{{ current_prev }}" class="nav-button prev">
-                        ← {{ prev_article.title | split: ' ' | first | remove: '.' }}
+                        ← {{ prev_article.title | split: '. ' | first }}
                     </a>
                 {% else %}
                     <div></div>
@@ -630,7 +632,7 @@
                         {% endif %}
                     {% endfor %}
                     <a href="/test/knowledge/{{ current_next }}" class="nav-button next">
-                        {{ next_article.title | split: ' ' | first | remove: '.' }} →
+                        {{ next_article.title | split: '. ' | first }} →
                     </a>
                 {% else %}
                     <div></div>
@@ -660,7 +662,7 @@
                         {% endif %}
                     {% endfor %}
                     <a href="/test/knowledge/{{ current_prev }}" class="nav-button prev">
-                        ← {{ prev_article.title | split: ' ' | first | remove: '.' }}
+                        ← {{ prev_article.title | split: '. ' | first }}
                     </a>
                 {% else %}
                     <div></div>
@@ -679,7 +681,7 @@
                         {% endif %}
                     {% endfor %}
                     <a href="/test/knowledge/{{ current_next }}" class="nav-button next">
-                        {{ next_article.title | split: ' ' | first | remove: '.' }} →
+                        {{ next_article.title | split: '. ' | first }} →
                     </a>
                 {% else %}
                     <div></div>
