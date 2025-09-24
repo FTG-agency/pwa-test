@@ -258,6 +258,7 @@
             border: 1px solid #718096;
         }
 
+        /* Mermaid diagram styling */
         .mermaid {
             background: #1a202c;
             border-radius: 8px;
@@ -268,7 +269,24 @@
         }
 
         .mermaid svg {
+            background: #1a202c !important;
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Code blocks with mermaid language should be treated as mermaid diagrams */
+        pre code.language-mermaid {
+            display: none;
+        }
+
+        /* Style for mermaid code blocks */
+        pre:has(code.language-mermaid) {
             background: #1a202c;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid #4a5568;
+            text-align: center;
         }
 
         .content img {
@@ -429,26 +447,49 @@
     </div>
 
     <script>
-        // Initialize Mermaid with dark theme
-        mermaid.initialize({
-            startOnLoad: true,
-            theme: 'dark',
-            themeVariables: {
-                primaryColor: '#63b3ed',
-                primaryTextColor: '#f7fafc',
-                primaryBorderColor: '#4299e1',
-                lineColor: '#cbd5e0',
-                secondaryColor: '#4a5568',
-                tertiaryColor: '#2d3748',
-                background: '#1a202c',
-                mainBkg: '#2d3748',
-                secondBkg: '#4a5568',
-                tertiaryBkg: '#1a202c'
-            },
-            flowchart: {
-                htmlLabels: true,
-                curve: 'basis'
-            }
+        // Initialize Mermaid with dark theme after DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            mermaid.initialize({
+                startOnLoad: false,
+                theme: 'dark',
+                themeVariables: {
+                    primaryColor: '#63b3ed',
+                    primaryTextColor: '#f7fafc',
+                    primaryBorderColor: '#4299e1',
+                    lineColor: '#cbd5e0',
+                    secondaryColor: '#4a5568',
+                    tertiaryColor: '#2d3748',
+                    background: '#1a202c',
+                    mainBkg: '#2d3748',
+                    secondBkg: '#4a5568',
+                    tertiaryBkg: '#1a202c'
+                },
+                flowchart: {
+                    htmlLabels: true,
+                    curve: 'basis'
+                }
+            });
+            
+            // Find all code blocks with mermaid language
+            const mermaidCodeBlocks = document.querySelectorAll('pre code.language-mermaid');
+            
+            mermaidCodeBlocks.forEach(function(block, index) {
+                // Get the mermaid code
+                const mermaidCode = block.textContent;
+                
+                // Create a new div for the mermaid diagram
+                const mermaidDiv = document.createElement('div');
+                mermaidDiv.className = 'mermaid';
+                mermaidDiv.textContent = mermaidCode;
+                mermaidDiv.id = 'mermaid-' + index;
+                
+                // Replace the code block with the mermaid div
+                const preElement = block.parentElement;
+                preElement.parentNode.replaceChild(mermaidDiv, preElement);
+            });
+            
+            // Render all mermaid diagrams on the page
+            mermaid.init(undefined, document.querySelectorAll('.mermaid'));
         });
     </script>
 </body>
