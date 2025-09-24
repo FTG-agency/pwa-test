@@ -26,6 +26,8 @@ exclude:
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
+  - sort/
+  - pattern/
 
 # Include files
 include:
