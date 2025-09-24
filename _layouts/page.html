@@ -131,6 +131,14 @@
             color: #fff;
         }
 
+        .sidebar a.active {
+            color: #63b3ed;
+            font-weight: 600;
+            background: rgba(99, 179, 237, 0.15);
+            border-left: 3px solid #63b3ed;
+            padding-left: 12px;
+        }
+
         /* Стили для разделов в сайдбаре */
         .toc-section {
             margin-bottom: 24px;
@@ -512,35 +520,35 @@
             <div class="toc-section">
                 <h4>1. Основы разработки ПО</h4>
                 <ul>
-                    <li><a href="/test/knowledge/1-software-development-processes">1. Процессы разработки ПО</a></li>
+                    <li><a href="/test/knowledge/1-software-development-processes" {% if page_name == "1-software-development-processes" %}class="active"{% endif %}>1. Процессы разработки ПО</a></li>
                 </ul>
             </div>
 
             <div class="toc-section">
                 <h4>2. Технические основы</h4>
                 <ul>
-                    <li><a href="/test/knowledge/2-1-programming-paradigms">2.1. Парадигмы программирования</a></li>
-                    <li><a href="/test/knowledge/2-2-language-classification">2.2. Классификация языков</a></li>
-                    <li><a href="/test/knowledge/2-3-code-architectures">2.3. Архитектуры кода</a></li>
-                    <li><a href="/test/knowledge/2-4-system-architectures">2.4. Системные архитектуры</a></li>
-                    <li><a href="/test/knowledge/2-5-database-classification">2.5. Классификация БД</a></li>
+                    <li><a href="/test/knowledge/2-1-programming-paradigms" {% if page_name == "2-1-programming-paradigms" %}class="active"{% endif %}>2.1. Парадигмы программирования</a></li>
+                    <li><a href="/test/knowledge/2-2-language-classification" {% if page_name == "2-2-language-classification" %}class="active"{% endif %}>2.2. Классификация языков</a></li>
+                    <li><a href="/test/knowledge/2-3-code-architectures" {% if page_name == "2-3-code-architectures" %}class="active"{% endif %}>2.3. Архитектуры кода</a></li>
+                    <li><a href="/test/knowledge/2-4-system-architectures" {% if page_name == "2-4-system-architectures" %}class="active"{% endif %}>2.4. Системные архитектуры</a></li>
+                    <li><a href="/test/knowledge/2-5-database-classification" {% if page_name == "2-5-database-classification" %}class="active"{% endif %}>2.5. Классификация БД</a></li>
                 </ul>
             </div>
 
             <div class="toc-section">
                 <h4>3. Инструменты</h4>
                 <ul>
-                    <li><a href="/test/knowledge/3-github-manual">3. GitHub - руководство</a></li>
+                    <li><a href="/test/knowledge/3-github-manual" {% if page_name == "3-github-manual" %}class="active"{% endif %}>3. GitHub - руководство</a></li>
                 </ul>
             </div>
 
             <div class="toc-section">
                 <h4>4. Бизнес и стартапы</h4>
                 <ul>
-                    <li><a href="/test/knowledge/4-1-startup-structure">4.1. Структура стартапов</a></li>
-                    <li><a href="/test/knowledge/4-2-sales-models">4.2. Модели продаж</a></li>
-                    <li><a href="/test/knowledge/4-3-customer-development">4.3. Customer Development</a></li>
-                    <li><a href="/test/knowledge/4-4-options-guide">4.4. Опционы в праве</a></li>
+                    <li><a href="/test/knowledge/4-1-startup-structure" {% if page_name == "4-1-startup-structure" %}class="active"{% endif %}>4.1. Структура стартапов</a></li>
+                    <li><a href="/test/knowledge/4-2-sales-models" {% if page_name == "4-2-sales-models" %}class="active"{% endif %}>4.2. Модели продаж</a></li>
+                    <li><a href="/test/knowledge/4-3-customer-development" {% if page_name == "4-3-customer-development" %}class="active"{% endif %}>4.3. Customer Development</a></li>
+                    <li><a href="/test/knowledge/4-4-options-guide" {% if page_name == "4-4-options-guide" %}class="active"{% endif %}>4.4. Опционы в праве</a></li>
                 </ul>
             </div>
         </div>
