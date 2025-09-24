@@ -516,6 +516,7 @@
     <div class="container">
         <div class="sidebar">
             <h3>📚 Оглавление</h3>
+            <!-- DEBUG: page_name for highlighting = "{{ page_name }}" -->
             
             <div class="toc-section">
                 <h4>1. Основы разработки ПО</h4>
@@ -529,7 +530,7 @@
                 <ul>
                     <li><a href="/test/knowledge/2-1-programming-paradigms" {% if page_name == "2-1-programming-paradigms" %}class="active"{% endif %}>2.1. Парадигмы программирования</a></li>
                     <li><a href="/test/knowledge/2-2-language-classification" {% if page_name == "2-2-language-classification" %}class="active"{% endif %}>2.2. Классификация языков</a></li>
-                    <li><a href="/test/knowledge/2-3-code-architectures" {% if page_name == "2-3-code-architectures" %}class="active"{% endif %}>2.3. Архитектуры кода</a></li>
+                    <li><a href="/test/knowledge/2-3-code-architectures" {% if page_name == "2-3-code-architectures" %}class="active"{% endif %} data-page-name="{{ page_name }}">2.3. Архитектуры кода</a></li>
                     <li><a href="/test/knowledge/2-4-system-architectures" {% if page_name == "2-4-system-architectures" %}class="active"{% endif %}>2.4. Системные архитектуры</a></li>
                     <li><a href="/test/knowledge/2-5-database-classification" {% if page_name == "2-5-database-classification" %}class="active"{% endif %}>2.5. Классификация БД</a></li>
                 </ul>
