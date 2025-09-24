@@ -562,11 +562,15 @@
     {% assign page_name = page.url | split: '/' | last | split: '.' | first %}
     {% assign current_article = site.data.navigation.articles | where: "id", page_name | first %}
             <!-- DEBUG: page.url = "{{ page.url }}", page_name = "{{ page_name }}", found = "{{ current_article.id }}" -->
+            <!-- DEBUG: current_article.title = "{{ current_article.title }}" -->
+            <!-- DEBUG: current_article.prev = "{{ current_article.prev }}" -->
+            <!-- DEBUG: current_article.next = "{{ current_article.next }}" -->
             {% if current_article %}
             <div class="article-navigation">
                 <!-- Предыдущая статья -->
                 {% if current_article.prev %}
                     {% assign prev_article = site.data.navigation.articles | where: "id", current_article.prev | first %}
+                    <!-- DEBUG: prev_article.id = "{{ prev_article.id }}", prev_article.title = "{{ prev_article.title }}" -->
                     <a href="/test/knowledge/{{ current_article.prev }}" class="nav-button prev">
                         ← {{ prev_article.title }}
                     </a>
@@ -580,6 +584,7 @@
                 <!-- Следующая статья -->
                 {% if current_article.next %}
                     {% assign next_article = site.data.navigation.articles | where: "id", current_article.next | first %}
+                    <!-- DEBUG: next_article.id = "{{ next_article.id }}", next_article.title = "{{ next_article.title }}" -->
                     <a href="/test/knowledge/{{ current_article.next }}" class="nav-button next">
                         {{ next_article.title }} →
                     </a>
