@@ -571,11 +571,16 @@
             <!-- DEBUG: current_article.title = "{{ current_article.title }}" -->
             <!-- DEBUG: current_article.prev = "{{ current_article.prev }}" -->
             <!-- DEBUG: current_article.next = "{{ current_article.next }}" -->
+            <!-- DEBUG: current_article.prev blank? = "{{ current_article.prev | blank }}" -->
+            <!-- DEBUG: current_article.next blank? = "{{ current_article.next | blank }}" -->
+            <!-- DEBUG: current_article.prev size = "{{ current_article.prev | size }}" -->
+            <!-- DEBUG: current_article.next size = "{{ current_article.next | size }}" -->
             <!-- DEBUG: total_articles = "{{ site.data.navigation.articles | size }}" -->
             <!-- DEBUG: all_ids = "{% for art in site.data.navigation.articles %}{{ art.id }}{% unless forloop.last %},{% endunless %}{% endfor %}" -->
             {% if current_article %}
             <div class="article-navigation">
                 <!-- Предыдущая статья -->
+                <!-- DEBUG: Checking if current_article.prev exists: "{{ current_article.prev }}" -->
                 {% if current_article.prev %}
                     {% assign prev_article = "" %}
                     {% for article in site.data.navigation.articles %}
@@ -589,6 +594,7 @@
                         ← {{ prev_article.title }}
                     </a>
                 {% else %}
+                    <!-- DEBUG: No prev article found - showing disabled button -->
                     <div class="nav-button nav-disabled">← Предыдущая</div>
                 {% endif %}
 
