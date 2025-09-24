@@ -561,6 +561,7 @@
             <!-- Навигация в начале статьи -->
             {% assign page_name = page.name | split: '.' | first %}
             {% assign current_article = site.data.navigation.articles | where: "id", page_name | first %}
+            <!-- DEBUG: page.name = "{{ page.name }}", page_name = "{{ page_name }}", found = "{{ current_article.id }}" -->
             {% if current_article %}
             <div class="article-navigation">
                 <!-- Предыдущая статья -->
