@@ -565,6 +565,8 @@
             <!-- DEBUG: current_article.title = "{{ current_article.title }}" -->
             <!-- DEBUG: current_article.prev = "{{ current_article.prev }}" -->
             <!-- DEBUG: current_article.next = "{{ current_article.next }}" -->
+            <!-- DEBUG: total_articles = "{{ site.data.navigation.articles | size }}" -->
+            <!-- DEBUG: all_ids = "{% for art in site.data.navigation.articles %}{{ art.id }}{% unless forloop.last %},{% endunless %}{% endfor %}" -->
             {% if current_article %}
             <div class="article-navigation">
                 <!-- Предыдущая статья -->
