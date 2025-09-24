@@ -397,9 +397,18 @@
                 <a href="/test/knowledge/code-architectures" class="nav-button secondary">🏗️ Архитектуры кода →</a>
                 {% elsif page.title == 'Архитектуры кода' %}
                 <a href="/test/knowledge/language-classification" class="nav-button secondary">← Классификация языков</a>
+                <a href="/test/knowledge/programming-paradigms" class="nav-button secondary">🧠 Парадигмы →</a>
+                {% elsif page.title == 'Парадигмы программирования' %}
+                <a href="/test/knowledge/code-architectures" class="nav-button secondary">← Архитектуры кода</a>
+                <a href="/test/knowledge/system-architectures" class="nav-button secondary">⚙️ Системные архитектуры →</a>
+                {% elsif page.title == 'Системные архитектуры' %}
+                <a href="/test/knowledge/programming-paradigms" class="nav-button secondary">← Парадигмы</a>
+                <a href="/test/knowledge/data-base-classification" class="nav-button secondary">🗄️ Классификация БД →</a>
+                {% elsif page.title == 'Классификация баз данных' %}
+                <a href="/test/knowledge/system-architectures" class="nav-button secondary">← Системные архитектуры</a>
                 <a href="/test/knowledge/startup-structure" class="nav-button secondary">🚀 Структура стартапов →</a>
                 {% elsif page.title == 'Структура стартапов' %}
-                <a href="/test/knowledge/code-architectures" class="nav-button secondary">← Архитектуры кода</a>
+                <a href="/test/knowledge/data-base-classification" class="nav-button secondary">← Классификация БД</a>
                 <a href="/test/knowledge/sales-models" class="nav-button secondary">💰 Модели продаж →</a>
                 {% elsif page.title == 'Модели продаж' %}
                 <a href="/test/knowledge/startup-structure" class="nav-button secondary">← Структура стартапов</a>
@@ -409,6 +418,9 @@
                 <a href="/test/knowledge/structured-options-guide" class="nav-button secondary">📋 Опционы →</a>
                 {% elsif page.title == 'Опционы в корпоративном праве' %}
                 <a href="/test/knowledge/customer-development" class="nav-button secondary">← Customer Development</a>
+                <a href="/test/knowledge/github-manual" class="nav-button secondary">🛠️ GitHub →</a>
+                {% elsif page.title == 'GitHub - Руководство пользователя' %}
+                <a href="/test/knowledge/structured-options-guide" class="nav-button secondary">← Опционы</a>
                 {% else %}
                 <a href="/test/" class="nav-button secondary">← К оглавлению</a>
                 {% endif %}
