@@ -1,3 +1,4 @@
+{% assign page_name = page.url | split: '/' | last | split: '.' | first %}
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -568,7 +569,6 @@
             {% endif %}
 
             <!-- Навигация в начале статьи -->
-    {% assign page_name = page.url | split: '/' | last | split: '.' | first %}
     {% assign current_article = "" %}
     {% assign current_prev = "" %}
     {% assign current_next = "" %}
