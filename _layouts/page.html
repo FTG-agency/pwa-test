@@ -18,25 +18,25 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
             color: #e2e8f0;
-            background: #1a202c;
+            background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
             min-height: 100vh;
             max-width: 100vw;
             overflow-x: hidden;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 20px;
             display: grid;
-            grid-template-columns: 250px minmax(0, 1fr);
-            gap: 30px;
+            grid-template-columns: 300px minmax(0, 1fr);
+            gap: 40px;
         }
 
         .sidebar {
-            background: #2d3748;
-            border-radius: 10px;
-            padding: 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 24px;
             height: fit-content;
             box-shadow: 0 2px 10px rgba(0,0,0,0.3);
             position: sticky;
@@ -45,8 +45,8 @@
 
         /* Навигация между статьями */
         .article-navigation {
-            background: #2d3748;
-            border-radius: 10px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
             padding: 24px;
             margin-top: 40px;
             display: grid;
@@ -103,9 +103,9 @@
         }
 
         .sidebar h3 {
-            color: #e2e8f0;
-            margin-bottom: 15px;
-            font-size: 1.1rem;
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
         }
 
         .sidebar ul {
@@ -113,24 +113,40 @@
         }
 
         .sidebar li {
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .sidebar a {
-            color: #63b3ed;
+            color: #e2e8f0;
             text-decoration: none;
             font-size: 0.9rem;
-            transition: color 0.3s ease;
+            padding: 4px 8px;
+            border-radius: 4px;
+            display: block;
+            transition: all 0.2s;
         }
 
         .sidebar a:hover {
-            color: #90cdf4;
-            text-decoration: underline;
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+        }
+
+        /* Стили для разделов в сайдбаре */
+        .toc-section {
+            margin-bottom: 24px;
+        }
+
+        .toc-section h4 {
+            color: #cbd5e0;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .content {
-            background: #2d3748;
-            border-radius: 10px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
             padding: 40px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.3);
             max-width: 100%;
@@ -473,26 +489,77 @@
                 font-size: 2rem;
             }
         }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 15px;
+            }
+
+            .sidebar {
+                position: static;
+                order: 2;
+            }
+
+            .content {
+                padding: 24px;
+                order: 1;
+            }
+
+            .article-navigation {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                text-align: center;
+            }
+
+            .nav-button.prev,
+            .nav-button.next {
+                justify-self: center;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="sidebar">
-            <h3>🗂️ Навигация</h3>
-            <ul>
-                <li><a href="/test/">🏠 Главная</a></li>
-                <li><a href="/test/knowledge/structured-software-development-knowledge">💻 Основы разработки ПО</a></li>
-                <li><a href="/test/knowledge/language-classification">🌐 Классификация языков</a></li>
-                <li><a href="/test/knowledge/code-architectures">🏗️ Архитектуры кода</a></li>
-                <li><a href="/test/knowledge/programming-paradigms">🧠 Парадигмы программирования</a></li>
-                <li><a href="/test/knowledge/system-architectures">⚙️ Системные архитектуры</a></li>
-                <li><a href="/test/knowledge/data-base-classification">🗄️ Классификация БД</a></li>
-                <li><a href="/test/knowledge/startup-structure">🚀 Структура стартапов</a></li>
-                <li><a href="/test/knowledge/sales-models">💰 Модели продаж</a></li>
-                <li><a href="/test/knowledge/customer-development">🔍 Customer Development</a></li>
-                <li><a href="/test/knowledge/structured-options-guide">📋 Опционы</a></li>
-                <li><a href="/test/knowledge/github-manual">🛠️ GitHub - Руководство</a></li>
-            </ul>
+            <h3>📚 Оглавление</h3>
+            
+            <div class="toc-section">
+                <h4>1. Основы разработки ПО</h4>
+                <ul>
+                    <li><a href="/test/knowledge/1-software-development-processes">1. Процессы разработки ПО</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-section">
+                <h4>2. Технические основы</h4>
+                <ul>
+                    <li><a href="/test/knowledge/2.1-programming-paradigms">2.1. Парадигмы программирования</a></li>
+                    <li><a href="/test/knowledge/2.2-language-classification">2.2. Классификация языков</a></li>
+                    <li><a href="/test/knowledge/2.3-code-architectures">2.3. Архитектуры кода</a></li>
+                    <li><a href="/test/knowledge/2.4-system-architectures">2.4. Системные архитектуры</a></li>
+                    <li><a href="/test/knowledge/2.5-database-classification">2.5. Классификация БД</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-section">
+                <h4>3. Инструменты</h4>
+                <ul>
+                    <li><a href="/test/knowledge/3-github-manual">3. GitHub - руководство</a></li>
+                </ul>
+            </div>
+
+            <div class="toc-section">
+                <h4>4. Бизнес и стартапы</h4>
+                <ul>
+                    <li><a href="/test/knowledge/4.1-startup-structure">4.1. Структура стартапов</a></li>
+                    <li><a href="/test/knowledge/4.2-sales-models">4.2. Модели продаж</a></li>
+                    <li><a href="/test/knowledge/4.3-customer-development">4.3. Customer Development</a></li>
+                    <li><a href="/test/knowledge/4.4-options-guide">4.4. Опционы в праве</a></li>
+                </ul>
+            </div>
         </div>
 
         <div class="content">
