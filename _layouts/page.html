@@ -595,6 +595,8 @@
                     <a href="/test/knowledge/{{ current_prev }}" class="nav-button prev">
                         ← {{ prev_article.title }}
                     </a>
+                {% else %}
+                    <div></div>
                 {% endif %}
 
                 <!-- Домой -->
@@ -612,6 +614,8 @@
                     <a href="/test/knowledge/{{ current_next }}" class="nav-button next">
                         {{ next_article.title }} →
                     </a>
+                {% else %}
+                    <div></div>
                 {% endif %}
             </div>
             {% else %}
@@ -640,6 +644,8 @@
                     <a href="/test/knowledge/{{ current_prev }}" class="nav-button prev">
                         ← {{ prev_article.title }}
                     </a>
+                {% else %}
+                    <div></div>
                 {% endif %}
 
                 <!-- Домой -->
@@ -657,6 +663,8 @@
                     <a href="/test/knowledge/{{ current_next }}" class="nav-button next">
                         {{ next_article.title }} →
                     </a>
+                {% else %}
+                    <div></div>
                 {% endif %}
             </div>
             {% else %}
