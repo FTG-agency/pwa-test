@@ -28,6 +28,7 @@ exclude:
   - vendor/ruby/
   - sort/
   - pattern/
+  - product-research/
 
 # Include files
 include:
