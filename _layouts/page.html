@@ -559,9 +559,9 @@
             {% endif %}
 
             <!-- Навигация в начале статьи -->
-            {% assign page_name = page.name | split: '.' | first %}
+            {% assign page_name = page.url | split: '/' | last %}
             {% assign current_article = site.data.navigation.articles | where: "id", page_name | first %}
-            <!-- DEBUG: page.name = "{{ page.name }}", page_name = "{{ page_name }}", found = "{{ current_article.id }}" -->
+            <!-- DEBUG: page.url = "{{ page.url }}", page_name = "{{ page_name }}", found = "{{ current_article.id }}" -->
             {% if current_article %}
             <div class="article-navigation">
                 <!-- Предыдущая статья -->
@@ -599,7 +599,7 @@
             {{ content }}
 
             <!-- Навигация в конце статьи -->
-            {% assign page_name_end = page.name | split: '.' | first %}
+            {% assign page_name_end = page.url | split: '/' | last %}
             {% assign current_article_end = site.data.navigation.articles | where: "id", page_name_end | first %}
             {% if current_article_end %}
             <div class="article-navigation">
