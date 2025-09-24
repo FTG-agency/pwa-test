@@ -584,7 +584,6 @@
             {% if current_article %}
             <div class="article-navigation">
                 <!-- Предыдущая статья -->
-                <!-- DEBUG: Checking if current_prev exists: "{{ current_prev }}" -->
                 {% if current_prev %}
                     {% assign prev_article = "" %}
                     {% for article in site.data.navigation.articles %}
@@ -593,13 +592,9 @@
                             {% break %}
                         {% endif %}
                     {% endfor %}
-                    <!-- DEBUG: prev_article.id = "{{ prev_article.id }}", prev_article.title = "{{ prev_article.title }}" -->
                     <a href="/test/knowledge/{{ current_prev }}" class="nav-button prev">
                         ← {{ prev_article.title }}
                     </a>
-                {% else %}
-                    <!-- DEBUG: No prev article found - showing disabled button -->
-                    <div class="nav-button nav-disabled">← Предыдущая</div>
                 {% endif %}
 
                 <!-- Домой -->
@@ -614,12 +609,9 @@
                             {% break %}
                         {% endif %}
                     {% endfor %}
-                    <!-- DEBUG: next_article.id = "{{ next_article.id }}", next_article.title = "{{ next_article.title }}" -->
                     <a href="/test/knowledge/{{ current_next }}" class="nav-button next">
                         {{ next_article.title }} →
                     </a>
-                {% else %}
-                    <div class="nav-button nav-disabled">Следующая →</div>
                 {% endif %}
             </div>
             {% else %}
@@ -648,8 +640,6 @@
                     <a href="/test/knowledge/{{ current_prev }}" class="nav-button prev">
                         ← {{ prev_article.title }}
                     </a>
-                {% else %}
-                    <div class="nav-button nav-disabled">← Предыдущая</div>
                 {% endif %}
 
                 <!-- Домой -->
@@ -667,8 +657,6 @@
                     <a href="/test/knowledge/{{ current_next }}" class="nav-button next">
                         {{ next_article.title }} →
                     </a>
-                {% else %}
-                    <div class="nav-button nav-disabled">Следующая →</div>
                 {% endif %}
             </div>
             {% else %}
