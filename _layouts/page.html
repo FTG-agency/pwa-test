@@ -560,7 +560,13 @@
 
             <!-- Навигация в начале статьи -->
     {% assign page_name = page.url | split: '/' | last | split: '.' | first %}
-    {% assign current_article = site.data.navigation.articles | where: "id", page_name | first %}
+    {% assign current_article = "" %}
+    {% for article in site.data.navigation.articles %}
+        {% if article.id == page_name %}
+            {% assign current_article = article %}
+            {% break %}
+        {% endif %}
+    {% endfor %}
             <!-- DEBUG: page.url = "{{ page.url }}", page_name = "{{ page_name }}", found = "{{ current_article.id }}" -->
             <!-- DEBUG: current_article.title = "{{ current_article.title }}" -->
             <!-- DEBUG: current_article.prev = "{{ current_article.prev }}" -->
@@ -571,7 +577,13 @@
             <div class="article-navigation">
                 <!-- Предыдущая статья -->
                 {% if current_article.prev %}
-                    {% assign prev_article = site.data.navigation.articles | where: "id", current_article.prev | first %}
+                    {% assign prev_article = "" %}
+                    {% for article in site.data.navigation.articles %}
+                        {% if article.id == current_article.prev %}
+                            {% assign prev_article = article %}
+                            {% break %}
+                        {% endif %}
+                    {% endfor %}
                     <!-- DEBUG: prev_article.id = "{{ prev_article.id }}", prev_article.title = "{{ prev_article.title }}" -->
                     <a href="/test/knowledge/{{ current_article.prev }}" class="nav-button prev">
                         ← {{ prev_article.title }}
@@ -585,7 +597,13 @@
 
                 <!-- Следующая статья -->
                 {% if current_article.next %}
-                    {% assign next_article = site.data.navigation.articles | where: "id", current_article.next | first %}
+                    {% assign next_article = "" %}
+                    {% for article in site.data.navigation.articles %}
+                        {% if article.id == current_article.next %}
+                            {% assign next_article = article %}
+                            {% break %}
+                        {% endif %}
+                    {% endfor %}
                     <!-- DEBUG: next_article.id = "{{ next_article.id }}", next_article.title = "{{ next_article.title }}" -->
                     <a href="/test/knowledge/{{ current_article.next }}" class="nav-button next">
                         {{ next_article.title }} →
@@ -607,7 +625,13 @@
 
             <!-- Навигация в конце статьи -->
             {% assign page_name_end = page.url | split: '/' | last | split: '.' | first %}
-            {% assign current_article_end = site.data.navigation.articles | where: "id", page_name_end | first %}
+            {% assign current_article_end = "" %}
+            {% for article in site.data.navigation.articles %}
+                {% if article.id == page_name_end %}
+                    {% assign current_article_end = article %}
+                    {% break %}
+                {% endif %}
+            {% endfor %}
             {% if current_article_end %}
             <div class="article-navigation">
                 <!-- Предыдущая статья -->
