@@ -43,6 +43,65 @@
             top: 20px;
         }
 
+        /* Навигация между статьями */
+        .article-navigation {
+            background: #2d3748;
+            border-radius: 10px;
+            padding: 24px;
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav-button {
+            display: inline-block;
+            background: #4a5568;
+            color: #e2e8f0;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .nav-button:hover {
+            background: #63b3ed;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .nav-button.prev {
+            justify-self: start;
+        }
+
+        .nav-button.next {
+            justify-self: end;
+        }
+
+        .home-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 12px 24px;
+            font-weight: 600;
+        }
+
+        .home-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .nav-disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .nav-disabled:hover {
+            background: #4a5568;
+            transform: none;
+        }
+
         .sidebar h3 {
             color: #e2e8f0;
             margin-bottom: 15px;
@@ -466,42 +525,9 @@
 
             {{ content }}
 
-            <div class="bottom-navigation">
-                <a href="/test/" class="nav-button primary">🏠 Главная</a>
-                {% if page.title == 'Знания о разработке ПО' %}
-                <a href="/test/knowledge/language-classification" class="nav-button secondary">🌐 Классификация языков →</a>
-                {% elsif page.title == 'Классификация языков программирования' %}
-                <a href="/test/knowledge/structured-software-development-knowledge" class="nav-button secondary">← Разработка ПО</a>
-                <a href="/test/knowledge/code-architectures" class="nav-button secondary">🏗️ Архитектуры кода →</a>
-                {% elsif page.title == 'Архитектуры кода' %}
-                <a href="/test/knowledge/language-classification" class="nav-button secondary">← Классификация языков</a>
-                <a href="/test/knowledge/programming-paradigms" class="nav-button secondary">🧠 Парадигмы →</a>
-                {% elsif page.title == 'Парадигмы программирования' %}
-                <a href="/test/knowledge/code-architectures" class="nav-button secondary">← Архитектуры кода</a>
-                <a href="/test/knowledge/system-architectures" class="nav-button secondary">⚙️ Системные архитектуры →</a>
-                {% elsif page.title == 'Системные архитектуры' %}
-                <a href="/test/knowledge/programming-paradigms" class="nav-button secondary">← Парадигмы</a>
-                <a href="/test/knowledge/data-base-classification" class="nav-button secondary">🗄️ Классификация БД →</a>
-                {% elsif page.title == 'Классификация баз данных' %}
-                <a href="/test/knowledge/system-architectures" class="nav-button secondary">← Системные архитектуры</a>
-                <a href="/test/knowledge/startup-structure" class="nav-button secondary">🚀 Структура стартапов →</a>
-                {% elsif page.title == 'Структура стартапов' %}
-                <a href="/test/knowledge/data-base-classification" class="nav-button secondary">← Классификация БД</a>
-                <a href="/test/knowledge/sales-models" class="nav-button secondary">💰 Модели продаж →</a>
-                {% elsif page.title == 'Модели продаж' %}
-                <a href="/test/knowledge/startup-structure" class="nav-button secondary">← Структура стартапов</a>
-                <a href="/test/knowledge/customer-development" class="nav-button secondary">🔍 Customer Development →</a>
-                {% elsif page.title == 'Customer Development' %}
-                <a href="/test/knowledge/sales-models" class="nav-button secondary">← Модели продаж</a>
-                <a href="/test/knowledge/structured-options-guide" class="nav-button secondary">📋 Опционы →</a>
-                {% elsif page.title == 'Опционы в корпоративном праве' %}
-                <a href="/test/knowledge/customer-development" class="nav-button secondary">← Customer Development</a>
-                <a href="/test/knowledge/github-manual" class="nav-button secondary">🛠️ GitHub →</a>
-                {% elsif page.title == 'GitHub - Руководство пользователя' %}
-                <a href="/test/knowledge/structured-options-guide" class="nav-button secondary">← Опционы</a>
-                {% else %}
-                <a href="/test/" class="nav-button secondary">← К оглавлению</a>
-                {% endif %}
+            <!-- Навигация между статьями -->
+            <div class="article-navigation">
+                <a href="/test/" class="nav-button home-button">🏠 Главная</a>
             </div>
         </div>
     </div>
