@@ -559,7 +559,7 @@
             {% endif %}
 
             <!-- Навигация в начале статьи -->
-            {% assign page_name = page.path | split: '/' | last | split: '.' | first %}
+            {% assign page_name = page.name | split: '.' | first %}
             {% assign current_article = site.data.navigation.articles | where: "id", page_name | first %}
             {% if current_article %}
             <div class="article-navigation">
@@ -598,12 +598,14 @@
             {{ content }}
 
             <!-- Навигация в конце статьи -->
-            {% if current_article %}
+            {% assign page_name_end = page.name | split: '.' | first %}
+            {% assign current_article_end = site.data.navigation.articles | where: "id", page_name_end | first %}
+            {% if current_article_end %}
             <div class="article-navigation">
                 <!-- Предыдущая статья -->
-                {% if current_article.prev %}
-                    {% assign prev_article = site.data.navigation.articles | where: "id", current_article.prev | first %}
-                    <a href="/test/knowledge/{{ current_article.prev }}" class="nav-button prev">
+                {% if current_article_end.prev %}
+                    {% assign prev_article = site.data.navigation.articles | where: "id", current_article_end.prev | first %}
+                    <a href="/test/knowledge/{{ current_article_end.prev }}" class="nav-button prev">
                         ← {{ prev_article.title }}
                     </a>
                 {% else %}
@@ -614,9 +616,9 @@
                 <a href="/test/" class="nav-button home-button">🏠 Главная</a>
 
                 <!-- Следующая статья -->
-                {% if current_article.next %}
-                    {% assign next_article = site.data.navigation.articles | where: "id", current_article.next | first %}
-                    <a href="/test/knowledge/{{ current_article.next }}" class="nav-button next">
+                {% if current_article_end.next %}
+                    {% assign next_article = site.data.navigation.articles | where: "id", current_article_end.next | first %}
+                    <a href="/test/knowledge/{{ current_article_end.next }}" class="nav-button next">
                         {{ next_article.title }} →
                     </a>
                 {% else %}
