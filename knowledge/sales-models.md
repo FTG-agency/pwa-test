@@ -231,16 +231,16 @@ graph LR
 
 **Главный инсайт:** Чем дешевле и проще продукт → тем больше самообслуживание. Чем дороже и сложнее → тем сильнее нужна команда продаж.
 
-![[sales-models-eng.png]]
+![Модели продаж (английский)](/test/files/sales-models-eng.png)
 
-![[sales-models-ru.png]]
+![Модели продаж (русский)](/test/files/sales-models-ru.png)
 
 ## Обновлённые диаграммы
 
 Новые версии диаграмм с улучшенным позиционированием и цветовой группировкой:
 
 **Английская версия:**
-![[sales_models_classification_en_updated.png]]
+![Классификация моделей продаж (английский, обновленная)](/test/files/sales_models_classification_en_updated.png)
 
 **Русская версия:**
-![[sales_models_classification_ru_updated.png]]
+![Классификация моделей продаж (русский, обновленная)](/test/files/sales_models_classification_ru_updated.png)

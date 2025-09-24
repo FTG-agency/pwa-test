@@ -107,6 +107,34 @@
             text-decoration: underline;
         }
 
+        .pdf-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #4a5568;
+            color: #f7fafc;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            border: 2px solid #63b3ed;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            margin: 10px 0;
+        }
+
+        .pdf-link:hover {
+            background: #63b3ed;
+            color: #1a202c;
+            text-decoration: none;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(99, 179, 237, 0.3);
+        }
+
+        .pdf-link::before {
+            content: "📄";
+            font-size: 1.2em;
+        }
+
         .emoji {
             font-size: 1.2em;
         }
