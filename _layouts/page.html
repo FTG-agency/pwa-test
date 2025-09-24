@@ -561,36 +561,40 @@
             <!-- Навигация в начале статьи -->
     {% assign page_name = page.url | split: '/' | last | split: '.' | first %}
     {% assign current_article = "" %}
+    {% assign current_prev = "" %}
+    {% assign current_next = "" %}
     {% for article in site.data.navigation.articles %}
         {% if article.id == page_name %}
             {% assign current_article = article %}
+            {% assign current_prev = article.prev %}
+            {% assign current_next = article.next %}
             {% break %}
         {% endif %}
     {% endfor %}
             <!-- DEBUG: page.url = "{{ page.url }}", page_name = "{{ page_name }}", found = "{{ current_article.id }}" -->
             <!-- DEBUG: current_article.title = "{{ current_article.title }}" -->
-            <!-- DEBUG: current_article.prev = "{{ current_article.prev }}" -->
-            <!-- DEBUG: current_article.next = "{{ current_article.next }}" -->
-            <!-- DEBUG: current_article.prev blank? = "{{ current_article.prev | blank }}" -->
-            <!-- DEBUG: current_article.next blank? = "{{ current_article.next | blank }}" -->
-            <!-- DEBUG: current_article.prev size = "{{ current_article.prev | size }}" -->
-            <!-- DEBUG: current_article.next size = "{{ current_article.next | size }}" -->
+            <!-- DEBUG: current_prev = "{{ current_prev }}" -->
+            <!-- DEBUG: current_next = "{{ current_next }}" -->
+            <!-- DEBUG: current_prev blank? = "{{ current_prev | blank }}" -->
+            <!-- DEBUG: current_next blank? = "{{ current_next | blank }}" -->
+            <!-- DEBUG: current_prev size = "{{ current_prev | size }}" -->
+            <!-- DEBUG: current_next size = "{{ current_next | size }}" -->
             <!-- DEBUG: total_articles = "{{ site.data.navigation.articles | size }}" -->
             <!-- DEBUG: all_ids = "{% for art in site.data.navigation.articles %}{{ art.id }}{% unless forloop.last %},{% endunless %}{% endfor %}" -->
             {% if current_article %}
             <div class="article-navigation">
                 <!-- Предыдущая статья -->
-                <!-- DEBUG: Checking if current_article.prev exists: "{{ current_article.prev }}" -->
-                {% if current_article.prev %}
+                <!-- DEBUG: Checking if current_prev exists: "{{ current_prev }}" -->
+                {% if current_prev %}
                     {% assign prev_article = "" %}
                     {% for article in site.data.navigation.articles %}
-                        {% if article.id == current_article.prev %}
+                        {% if article.id == current_prev %}
                             {% assign prev_article = article %}
                             {% break %}
                         {% endif %}
                     {% endfor %}
                     <!-- DEBUG: prev_article.id = "{{ prev_article.id }}", prev_article.title = "{{ prev_article.title }}" -->
-                    <a href="/test/knowledge/{{ current_article.prev }}" class="nav-button prev">
+                    <a href="/test/knowledge/{{ current_prev }}" class="nav-button prev">
                         ← {{ prev_article.title }}
                     </a>
                 {% else %}
@@ -602,16 +606,16 @@
                 <a href="/test/" class="nav-button home-button">🏠 Главная</a>
 
                 <!-- Следующая статья -->
-                {% if current_article.next %}
+                {% if current_next %}
                     {% assign next_article = "" %}
                     {% for article in site.data.navigation.articles %}
-                        {% if article.id == current_article.next %}
+                        {% if article.id == current_next %}
                             {% assign next_article = article %}
                             {% break %}
                         {% endif %}
                     {% endfor %}
                     <!-- DEBUG: next_article.id = "{{ next_article.id }}", next_article.title = "{{ next_article.title }}" -->
-                    <a href="/test/knowledge/{{ current_article.next }}" class="nav-button next">
+                    <a href="/test/knowledge/{{ current_next }}" class="nav-button next">
                         {{ next_article.title }} →
                     </a>
                 {% else %}
