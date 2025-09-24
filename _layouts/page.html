@@ -634,20 +634,18 @@
             {{ content }}
 
             <!-- Навигация в конце статьи -->
-            {% assign page_name_end = page.url | split: '/' | last | split: '.' | first %}
-            {% assign current_article_end = "" %}
-            {% for article in site.data.navigation.articles %}
-                {% if article.id == page_name_end %}
-                    {% assign current_article_end = article %}
-                    {% break %}
-                {% endif %}
-            {% endfor %}
-            {% if current_article_end %}
+            {% if current_article %}
             <div class="article-navigation">
                 <!-- Предыдущая статья -->
-                {% if current_article_end.prev %}
-                    {% assign prev_article = site.data.navigation.articles | where: "id", current_article_end.prev | first %}
-                    <a href="/test/knowledge/{{ current_article_end.prev }}" class="nav-button prev">
+                {% if current_prev %}
+                    {% assign prev_article = "" %}
+                    {% for article in site.data.navigation.articles %}
+                        {% if article.id == current_prev %}
+                            {% assign prev_article = article %}
+                            {% break %}
+                        {% endif %}
+                    {% endfor %}
+                    <a href="/test/knowledge/{{ current_prev }}" class="nav-button prev">
                         ← {{ prev_article.title }}
                     </a>
                 {% else %}
@@ -658,9 +656,15 @@
                 <a href="/test/" class="nav-button home-button">🏠 Главная</a>
 
                 <!-- Следующая статья -->
-                {% if current_article_end.next %}
-                    {% assign next_article = site.data.navigation.articles | where: "id", current_article_end.next | first %}
-                    <a href="/test/knowledge/{{ current_article_end.next }}" class="nav-button next">
+                {% if current_next %}
+                    {% assign next_article = "" %}
+                    {% for article in site.data.navigation.articles %}
+                        {% if article.id == current_next %}
+                            {% assign next_article = article %}
+                            {% break %}
+                        {% endif %}
+                    {% endfor %}
+                    <a href="/test/knowledge/{{ current_next }}" class="nav-button next">
                         {{ next_article.title }} →
                     </a>
                 {% else %}
