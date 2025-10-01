@@ -7,9 +7,9 @@
     <meta name="description" content="{{ page.description | default: 'База знаний для управления проектами и исследования продуктов' }}">
     
     <!-- Language and SEO -->
-    <link rel="alternate" href="{{ '/test/' | relative_url }}" hreflang="ru" />
-    <link rel="alternate" href="{{ '/test/en/' | relative_url }}" hreflang="en" />
-    <link rel="alternate" href="{{ '/test/' | relative_url }}" hreflang="x-default" />
+    <link rel="alternate" href="{{ '/ru/' | relative_url }}" hreflang="ru" />
+    <link rel="alternate" href="{{ '/en/' | relative_url }}" hreflang="en" />
+    <link rel="alternate" href="{{ '/ru/' | relative_url }}" hreflang="x-default" />
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ '/assets/favicons/favicon-96x96.png' | relative_url }}" sizes="96x96" />
@@ -106,6 +106,19 @@
             color: #63b3ed;
             border-left: 3px solid #63b3ed;
             padding-left: 12px;
+        }
+
+        .toc-section a.back-to-main {
+            background: rgba(255, 193, 7, 0.2);
+            color: #ffc107;
+            border-left: 3px solid #ffc107;
+            padding-left: 12px;
+            font-weight: 600;
+        }
+
+        .toc-section a.back-to-main:hover {
+            background: rgba(255, 193, 7, 0.3);
+            color: #ffc107;
         }
 
         /* Основной контент */
@@ -462,7 +475,166 @@
             }
         }
 
+        /* Language selection page styles */
+        .language-selection-page {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .language-selection-page .hero-section {
+            margin-bottom: 60px;
+        }
+
+        .language-selection-page .hero-section h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .language-selection-page .hero-section h1:first-of-type {
+            margin-bottom: 10px;
+        }
+
+        .language-selection-page .hero-section h1:last-of-type {
+            margin-bottom: 30px;
+        }
+
+        .language-selection-page .lead {
+            font-size: 1.3rem;
+            color: #cbd5e0;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .language-selection-page .about-section {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 60px;
+            text-align: left;
+        }
+
+        .language-selection-page .about-section h2 {
+            color: #fff;
+            margin-bottom: 24px;
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        .language-selection-page .about-section p {
+            color: #cbd5e0;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .language-selection-page .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .language-selection-page .feature {
+            background: rgba(255,255,255,0.03);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .language-selection-page .feature h4 {
+            color: #fff;
+            margin-bottom: 16px;
+            font-size: 1.1rem;
+        }
+
+        .language-selection-page .feature p {
+            color: #a0aec0;
+            font-size: 0.95rem;
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+
+        .language-selection {
+            margin-top: 60px;
+        }
+
+        .language-selection h3 {
+            color: #fff;
+            margin-bottom: 40px;
+            font-size: 1.8rem;
+        }
+
+        .language-buttons {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .language-button {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            padding: 40px 50px;
+            border-radius: 16px;
+            font-weight: 600;
+            font-size: 1.2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            min-width: 200px;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
+        }
+
+        .language-button:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.4);
+            text-decoration: none;
+            color: white;
+        }
+
+        .language-button .flag {
+            font-size: 3rem;
+            margin-bottom: 16px;
+        }
+
+        .language-button .language-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .language-button .language-desc {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+
         @media (max-width: 768px) {
+            .language-selection-page .hero-section h1 {
+                font-size: 2.5rem;
+            }
+            
+            .language-selection-page .about-section {
+                padding: 30px 20px;
+            }
+            
+            .language-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .language-button {
+                width: 100%;
+                max-width: 300px;
+                padding: 30px 40px;
+            }
+            
             .header h1 {
                 font-size: 2rem;
             }
