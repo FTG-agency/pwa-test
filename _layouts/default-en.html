@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% if page.title %}{{ page.title }} - Private Management{% else %}Private Management - База знаний{% endif %}</title>
-    <meta name="description" content="{{ page.description | default: 'База знаний для управления проектами и исследования продуктов' }}">
+    <title>{% if page.title %}{{ page.title }} - Private Management{% else %}Private Management - Knowledge Base{% endif %}</title>
+    <meta name="description" content="{{ page.description | default: 'Knowledge base for project management and product research' }}">
     
     <!-- Language and SEO -->
     <link rel="alternate" href="{{ '/test/' | relative_url }}" hreflang="ru" />
@@ -40,7 +40,7 @@
             padding: 20px;
         }
 
-        /* Новая структура главной страницы */
+        /* New main page structure */
         .main-layout {
             display: grid;
             grid-template-columns: 300px 1fr;
@@ -50,7 +50,7 @@
             padding: 20px;
         }
 
-        /* Оглавление слева */
+        /* Table of contents on the left */
         .table-of-contents {
             background: rgba(255,255,255,0.1);
             border-radius: 12px;
@@ -108,7 +108,7 @@
             padding-left: 12px;
         }
 
-        /* Основной контент */
+        /* Main content */
         .main-content {
             min-width: 0;
         }
@@ -131,7 +131,7 @@
             margin-bottom: 0;
         }
 
-        /* Информационные карточки */
+        /* Information cards */
         .info-cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -175,7 +175,7 @@
             font-weight: 500;
         }
 
-        /* О базе знаний */
+        /* About the knowledge base */
         .about-section {
             background: rgba(255,255,255,0.05);
             border-radius: 12px;
@@ -213,7 +213,7 @@
             margin: 0;
         }
 
-        /* Кнопка начать изучение */
+        /* Start reading button */
         .start-reading {
             text-align: center;
             background: rgba(255,255,255,0.05);
@@ -247,157 +247,6 @@
         .start-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
-        }
-
-        .header {
-            text-align: center;
-            color: white;
-            margin-bottom: 40px;
-        }
-
-        .header h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .card {
-            background: #2d3748;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid #4a5568;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-            border-color: #63b3ed;
-        }
-
-        .card h2 {
-            color: #f7fafc;
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .card p {
-            color: #cbd5e0;
-            margin-bottom: 20px;
-        }
-
-        .card ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .card li {
-            padding: 8px 0;
-            border-bottom: 1px solid #4a5568;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .card li:last-child {
-            border-bottom: none;
-        }
-
-        .card li a {
-            color: #63b3ed;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .card li a:hover {
-            color: #90cdf4;
-            text-decoration: underline;
-        }
-
-        .pdf-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: #4a5568;
-            color: #f7fafc;
-            padding: 12px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            border: 2px solid #63b3ed;
-            transition: all 0.3s ease;
-            font-weight: 500;
-            margin: 10px 0;
-        }
-
-        .pdf-link:hover {
-            background: #63b3ed;
-            color: #1a202c;
-            text-decoration: none;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(99, 179, 237, 0.3);
-        }
-
-        .pdf-link::before {
-            content: "📄";
-            font-size: 1.2em;
-        }
-
-        .emoji {
-            font-size: 1.2em;
-        }
-
-        .footer {
-            text-align: center;
-            color: white;
-            opacity: 0.8;
-            margin-top: 40px;
-        }
-
-        .stats {
-            background: rgba(45, 55, 72, 0.8);
-            border-radius: 10px;
-            padding: 20px;
-            margin: 30px 0;
-            color: #e2e8f0;
-            border: 1px solid #4a5568;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px;
-            text-align: center;
-        }
-
-        .stat {
-            padding: 15px;
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            font-weight: bold;
-            display: block;
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            opacity: 0.8;
         }
 
         /* Table styles */
@@ -463,12 +312,13 @@
         }
 
         @media (max-width: 768px) {
-            .header h1 {
+            .hero-section h1 {
                 font-size: 2rem;
             }
             
-            .cards-grid {
+            .main-layout {
                 grid-template-columns: 1fr;
+                gap: 20px;
             }
             
             .container {
