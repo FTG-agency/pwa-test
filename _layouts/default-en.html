@@ -41,28 +41,30 @@
             min-height: 100vh;
         }
 
-        /* Enable pull-to-refresh only on mobile devices and tablets */
-        @media (max-width: 1024px) and (hover: none) and (pointer: coarse) {
+        /* Enable pull-to-refresh on mobile devices */
+        @media (max-width: 1024px) {
             body {
-                overscroll-behavior-y: contain;
+                overscroll-behavior-y: auto;
                 -webkit-overflow-scrolling: touch;
-                /* Additional mobile optimizations */
+                /* Enable pull-to-refresh */
+                overscroll-behavior-x: none;
+            }
+            
+            html {
+                overscroll-behavior-y: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+        }
+
+        /* Additional mobile optimizations */
+        @media (max-width: 768px) {
+            body {
                 -webkit-touch-callout: none;
                 -webkit-user-select: none;
                 -khtml-user-select: none;
                 -moz-user-select: none;
                 -ms-user-select: none;
                 user-select: none;
-            }
-        }
-
-        /* Specific iOS optimizations */
-        @supports (-webkit-touch-callout: none) {
-            @media (max-width: 1024px) {
-                body {
-                    overscroll-behavior-y: contain;
-                    -webkit-overflow-scrolling: touch;
-                }
             }
         }
 
@@ -386,6 +388,45 @@
             }
         }
     </style>
+    
+    <!-- Pull-to-refresh JavaScript -->
+    <script>
+        // Enable pull-to-refresh on mobile devices
+        if (window.innerWidth <= 1024) {
+            let startY = 0;
+            let currentY = 0;
+            let isPulling = false;
+            let pullDistance = 0;
+            
+            document.addEventListener('touchstart', function(e) {
+                if (window.scrollY === 0) {
+                    startY = e.touches[0].clientY;
+                    isPulling = true;
+                }
+            }, { passive: true });
+            
+            document.addEventListener('touchmove', function(e) {
+                if (isPulling && window.scrollY === 0) {
+                    currentY = e.touches[0].clientY;
+                    pullDistance = currentY - startY;
+                    
+                    if (pullDistance > 0) {
+                        e.preventDefault();
+                        // Visual feedback could be added here
+                    }
+                }
+            }, { passive: false });
+            
+            document.addEventListener('touchend', function(e) {
+                if (isPulling && pullDistance > 100) {
+                    // Trigger refresh
+                    window.location.reload();
+                }
+                isPulling = false;
+                pullDistance = 0;
+            }, { passive: true });
+        }
+    </script>
 </head>
 <body>
     {{ content }}
