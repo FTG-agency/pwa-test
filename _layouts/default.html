@@ -2,9 +2,16 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>{% if page.title %}{{ page.title }} - Private Management{% else %}Private Management - База знаний{% endif %}</title>
     <meta name="description" content="{{ page.description | default: 'База знаний для управления проектами и исследования продуктов' }}">
+    
+    <!-- PWA Meta Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Private Management">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#2d3748">
     
     <!-- Language and SEO -->
     <link rel="alternate" href="{{ '/test/ru/' | relative_url }}" hreflang="ru" />
@@ -32,6 +39,9 @@
             color: #e2e8f0;
             background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
             min-height: 100vh;
+            /* Enable pull-to-refresh on iOS */
+            overscroll-behavior-y: contain;
+            -webkit-overflow-scrolling: touch;
         }
 
         .container {
