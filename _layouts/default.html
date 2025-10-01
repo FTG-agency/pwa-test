@@ -41,19 +41,15 @@
             min-height: 100vh;
         }
 
-        /* Enable pull-to-refresh on mobile devices */
-        @media (max-width: 1024px) {
-            body {
-                overscroll-behavior-y: auto;
-                -webkit-overflow-scrolling: touch;
-                /* Enable pull-to-refresh */
-                overscroll-behavior-x: none;
-            }
-            
-            html {
-                overscroll-behavior-y: auto;
-                -webkit-overflow-scrolling: touch;
-            }
+        /* Disable browser's default pull-to-refresh */
+        body {
+            overscroll-behavior-y: contain;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        html {
+            overscroll-behavior-y: contain;
+            -webkit-overflow-scrolling: touch;
         }
 
         /* Additional mobile optimizations */
@@ -783,8 +779,20 @@
     
     <!-- Pull-to-refresh JavaScript -->
     <script>
-        // Enable pull-to-refresh on mobile devices
-        if (window.innerWidth <= 1024) {
+        // Enable pull-to-refresh only in PWA mode or on mobile devices
+        function isPWA() {
+            return window.matchMedia('(display-mode: standalone)').matches || 
+                   window.navigator.standalone === true ||
+                   document.referrer.includes('android-app://');
+        }
+        
+        function isMobile() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
+                   window.innerWidth <= 1024;
+        }
+        
+        // Only enable on mobile devices or in PWA mode
+        if (isMobile() || isPWA()) {
             let startY = 0;
             let currentY = 0;
             let isPulling = false;
@@ -858,6 +866,12 @@
                 isPulling = false;
                 pullDistance = 0;
             }, { passive: true });
+        } else {
+            // Hide indicators on desktop
+            const indicator = document.getElementById('pullToRefreshIndicator');
+            const text = document.getElementById('pullToRefreshText');
+            if (indicator) indicator.style.display = 'none';
+            if (text) text.style.display = 'none';
         }
     </script>
 </head>
