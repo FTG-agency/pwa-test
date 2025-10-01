@@ -68,6 +68,63 @@
             }
         }
 
+        /* Pull-to-refresh animation */
+        .pull-to-refresh-indicator {
+            position: fixed;
+            top: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            transition: top 0.3s ease;
+            box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .pull-to-refresh-indicator.active {
+            top: 20px;
+        }
+
+        .pull-to-refresh-spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-top: 2px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        .pull-to-refresh-spinner.pulling {
+            animation: none;
+            transform: rotate(0deg);
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .pull-to-refresh-text {
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #667eea;
+            font-size: 14px;
+            font-weight: 600;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .pull-to-refresh-text.visible {
+            opacity: 1;
+        }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -732,30 +789,71 @@
             let currentY = 0;
             let isPulling = false;
             let pullDistance = 0;
+            let isRefreshing = false;
+            
+            const indicator = document.getElementById('pullToRefreshIndicator');
+            const spinner = document.getElementById('pullToRefreshSpinner');
+            const text = document.getElementById('pullToRefreshText');
             
             document.addEventListener('touchstart', function(e) {
-                if (window.scrollY === 0) {
+                if (window.scrollY === 0 && !isRefreshing) {
                     startY = e.touches[0].clientY;
                     isPulling = true;
                 }
             }, { passive: true });
             
             document.addEventListener('touchmove', function(e) {
-                if (isPulling && window.scrollY === 0) {
+                if (isPulling && window.scrollY === 0 && !isRefreshing) {
                     currentY = e.touches[0].clientY;
                     pullDistance = currentY - startY;
                     
                     if (pullDistance > 0) {
                         e.preventDefault();
-                        // Visual feedback could be added here
+                        
+                        // Show indicator when pulling
+                        if (pullDistance > 20) {
+                            indicator.classList.add('active');
+                            text.classList.add('visible');
+                            spinner.classList.add('pulling');
+                            
+                            // Rotate spinner based on pull distance
+                            const rotation = Math.min(pullDistance * 2, 360);
+                            spinner.style.transform = `rotate(${rotation}deg)`;
+                            
+                            // Change text when ready to refresh
+                            if (pullDistance > 100) {
+                                text.textContent = 'Отпустите для обновления';
+                                text.style.color = '#48bb78';
+                            } else {
+                                text.textContent = 'Потяните для обновления';
+                                text.style.color = '#667eea';
+                            }
+                        }
                     }
                 }
             }, { passive: false });
             
             document.addEventListener('touchend', function(e) {
-                if (isPulling && pullDistance > 100) {
-                    // Trigger refresh
-                    window.location.reload();
+                if (isPulling && !isRefreshing) {
+                    if (pullDistance > 100) {
+                        // Start refresh animation
+                        isRefreshing = true;
+                        text.textContent = 'Обновление...';
+                        text.style.color = '#48bb78';
+                        spinner.classList.remove('pulling');
+                        spinner.style.transform = 'rotate(0deg)';
+                        
+                        // Trigger refresh after animation
+                        setTimeout(() => {
+                            window.location.reload();
+                        }, 500);
+                    } else {
+                        // Hide indicator
+                        indicator.classList.remove('active');
+                        text.classList.remove('visible');
+                        spinner.classList.remove('pulling');
+                        spinner.style.transform = 'rotate(0deg)';
+                    }
                 }
                 isPulling = false;
                 pullDistance = 0;
@@ -764,6 +862,12 @@
     </script>
 </head>
 <body>
+    <!-- Pull-to-refresh indicator -->
+    <div class="pull-to-refresh-indicator" id="pullToRefreshIndicator">
+        <div class="pull-to-refresh-spinner" id="pullToRefreshSpinner"></div>
+    </div>
+    <div class="pull-to-refresh-text" id="pullToRefreshText">Потяните для обновления</div>
+    
     {{ content }}
 </body>
 </html>
