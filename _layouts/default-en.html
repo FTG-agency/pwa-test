@@ -319,10 +319,38 @@
             .main-layout {
                 grid-template-columns: 1fr;
                 gap: 20px;
+                padding: 15px;
             }
             
-            .container {
-                padding: 15px;
+            .table-of-contents {
+                position: static !important;
+                order: 2;
+            }
+            
+            .main-content {
+                order: 1;
+            }
+            
+            .info-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-layout {
+                padding: 10px;
+            }
+            
+            .table-of-contents {
+                padding: 16px;
+            }
+            
+            .main-content {
+                padding: 16px;
             }
         }
     </style>
