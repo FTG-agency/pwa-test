@@ -452,12 +452,24 @@
         }
         
         function isMobile() {
-            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
-                   window.innerWidth <= 1024;
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
         }
         
-        // Only enable on mobile devices or in PWA mode
-        if (isMobile() || isPWA()) {
+        function isTouchDevice() {
+            return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+        }
+        
+        // Debug information
+        console.log('PWA mode:', isPWA());
+        console.log('Mobile device:', isMobile());
+        console.log('Touch device:', isTouchDevice());
+        console.log('User agent:', navigator.userAgent);
+        console.log('Display mode:', window.matchMedia('(display-mode: standalone)').matches);
+        console.log('Standalone:', window.navigator.standalone);
+        
+        // Only enable on mobile devices with touch OR in PWA mode
+        if ((isMobile() && isTouchDevice()) || isPWA()) {
+            console.log('Pull-to-refresh ENABLED');
             let startY = 0;
             let currentY = 0;
             let isPulling = false;
@@ -532,6 +544,7 @@
                 pullDistance = 0;
             }, { passive: true });
         } else {
+            console.log('Pull-to-refresh DISABLED');
             // Hide indicators on desktop
             const indicator = document.getElementById('pullToRefreshIndicator');
             const text = document.getElementById('pullToRefreshText');
