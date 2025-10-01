@@ -27,8 +27,6 @@ exclude:
   - vendor/gems/
   - vendor/ruby/
   - archive/
-  - pattern/
-  - product-research/
 
 # Include files
 include:
@@ -37,12 +35,6 @@ include:
 # Collections
 collections:
   knowledge:
-    output: true
-    permalink: /:name/
-  product-research:
-    output: true
-    permalink: /:name/
-  patterns:
     output: true
     permalink: /:name/
 
@@ -56,16 +48,6 @@ defaults:
   - scope:
       path: ""
       type: "knowledge"
-    values:
-      layout: "page"
-  - scope:
-      path: ""
-      type: "product-research"
-    values:
-      layout: "page"
-  - scope:
-      path: ""
-      type: "patterns"
     values:
       layout: "page"
 
