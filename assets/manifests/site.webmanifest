@@ -23,5 +23,9 @@
   "display": "standalone",
   "orientation": "portrait-primary",
   "categories": ["education", "productivity"],
-  "lang": "ru"
+  "lang": "ru",
+  "prefer_related_applications": false,
+  "edge_side_panel": {
+    "preferred_width": 400
+  }
 }
