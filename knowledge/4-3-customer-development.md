@@ -11,7 +11,7 @@ updated: 2025-09-23
 
 - https://vc.ru/books/95793-konspekt-knigi-roba-fitcpatrika-sprosi-mamu?ysclid=l5f9ezch2e688905199
 - [https://zamesin.ru/books/product-howto/intro](https://zamesin.ru/books/product-howto/intro)
-- <a href="/test/files/framework-pf-interview.pdf" class="pdf-link">Фреймворк PF-интервью.pdf</a>
+- <a href="/pwa-test/files/framework-pf-interview.pdf" class="pdf-link">Фреймворк PF-интервью.pdf</a>
 
 ---
 

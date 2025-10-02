@@ -699,51 +699,51 @@
             <div class="toc-section">
                 <h4>1. Software Development Fundamentals</h4>
                 <ul>
-                    <li><a href="/test/knowledge/1-software-development-processes" {% if page_name == "1-software-development-processes" %}class="active"{% endif %}>1. Software Development Processes</a></li>
+                    <li><a href="/pwa-test/knowledge/1-software-development-processes" {% if page_name == "1-software-development-processes" %}class="active"{% endif %}>1. Software Development Processes</a></li>
                 </ul>
             </div>
 
             <div class="toc-section">
                 <h4>2. Technical Foundations</h4>
                 <ul>
-                    <li><a href="/test/knowledge/2-1-programming-paradigms" {% if page_name == "2-1-programming-paradigms" %}class="active"{% endif %}>2.1. Programming Paradigms</a></li>
-                    <li><a href="/test/knowledge/2-2-language-classification" {% if page_name == "2-2-language-classification" %}class="active"{% endif %}>2.2. Language Classification</a></li>
-                    <li><a href="/test/knowledge/2-3-code-architectures" {% if page_name == "2-3-code-architectures" %}class="active"{% endif %} data-page-name="{{ page_name }}">2.3. Code Architectures</a></li>
-                    <li><a href="/test/knowledge/2-4-system-architectures" {% if page_name == "2-4-system-architectures" %}class="active"{% endif %}>2.4. System Architectures</a></li>
-                    <li><a href="/test/knowledge/2-5-database-classification" {% if page_name == "2-5-database-classification" %}class="active"{% endif %}>2.5. Database Classification</a></li>
+                    <li><a href="/pwa-test/knowledge/2-1-programming-paradigms" {% if page_name == "2-1-programming-paradigms" %}class="active"{% endif %}>2.1. Programming Paradigms</a></li>
+                    <li><a href="/pwa-test/knowledge/2-2-language-classification" {% if page_name == "2-2-language-classification" %}class="active"{% endif %}>2.2. Language Classification</a></li>
+                    <li><a href="/pwa-test/knowledge/2-3-code-architectures" {% if page_name == "2-3-code-architectures" %}class="active"{% endif %} data-page-name="{{ page_name }}">2.3. Code Architectures</a></li>
+                    <li><a href="/pwa-test/knowledge/2-4-system-architectures" {% if page_name == "2-4-system-architectures" %}class="active"{% endif %}>2.4. System Architectures</a></li>
+                    <li><a href="/pwa-test/knowledge/2-5-database-classification" {% if page_name == "2-5-database-classification" %}class="active"{% endif %}>2.5. Database Classification</a></li>
                 </ul>
             </div>
 
             <div class="toc-section">
                 <h4>3. Tools</h4>
                 <ul>
-                    <li><a href="/test/knowledge/3-github-manual" {% if page_name == "3-github-manual" %}class="active"{% endif %}>3. GitHub - Guide</a></li>
+                    <li><a href="/pwa-test/knowledge/3-github-manual" {% if page_name == "3-github-manual" %}class="active"{% endif %}>3. GitHub - Guide</a></li>
                 </ul>
             </div>
 
             <div class="toc-section">
                 <h4>4. Business and Startups</h4>
                 <ul>
-                    <li><a href="/test/knowledge/4-1-startup-structure" {% if page_name == "4-1-startup-structure" %}class="active"{% endif %}>4.1. Startup Structure</a></li>
-                    <li><a href="/test/knowledge/4-2-sales-models" {% if page_name == "4-2-sales-models" %}class="active"{% endif %}>4.2. Sales Models</a></li>
-                    <li><a href="/test/knowledge/4-3-customer-development" {% if page_name == "4-3-customer-development" %}class="active"{% endif %}>4.3. Customer Development</a></li>
-                    <li><a href="/test/knowledge/4-4-options-guide" {% if page_name == "4-4-options-guide" %}class="active"{% endif %}>4.4. Stock Options Guide</a></li>
+                    <li><a href="/pwa-test/knowledge/4-1-startup-structure" {% if page_name == "4-1-startup-structure" %}class="active"{% endif %}>4.1. Startup Structure</a></li>
+                    <li><a href="/pwa-test/knowledge/4-2-sales-models" {% if page_name == "4-2-sales-models" %}class="active"{% endif %}>4.2. Sales Models</a></li>
+                    <li><a href="/pwa-test/knowledge/4-3-customer-development" {% if page_name == "4-3-customer-development" %}class="active"{% endif %}>4.3. Customer Development</a></li>
+                    <li><a href="/pwa-test/knowledge/4-4-options-guide" {% if page_name == "4-4-options-guide" %}class="active"{% endif %}>4.4. Stock Options Guide</a></li>
                 </ul>
             </div>
 
             <div class="toc-section">
                 <h4>Language</h4>
                 <ul>
-                    <li><a href="/test/" class="back-to-main">← Main Page</a></li>
-                    <li><a href="/test/ru/">🇷🇺 Русский</a></li>
-                    <li><a href="/test/en/" class="active">🇺🇸 English</a></li>
+                    <li><a href="/pwa-test/" class="back-to-main">← Main Page</a></li>
+                    <li><a href="/pwa-test/ru/">🇷🇺 Русский</a></li>
+                    <li><a href="/pwa-test/en/" class="active">🇺🇸 English</a></li>
                 </ul>
             </div>
         </div>
 
         <div class="content">
             <div class="breadcrumb">
-                <a href="/test/">Main Page</a> > {{ page.title }}
+                <a href="/pwa-test/">Main Page</a> > {{ page.title }}
             </div>
 
             {% if page.version %}
@@ -787,7 +787,7 @@
                             {% break %}
                         {% endif %}
                     {% endfor %}
-                    <a href="/test/knowledge/{{ current_prev }}" class="nav-button prev">
+                    <a href="/pwa-test/knowledge/{{ current_prev }}" class="nav-button prev">
                         ← {{ prev_article.title | split: '. ' | first }}
                     </a>
                 {% else %}
@@ -795,7 +795,7 @@
                 {% endif %}
 
                 <!-- Home -->
-                <a href="/test/" class="nav-button home-button">🏠 Main Page</a>
+                <a href="/pwa-test/" class="nav-button home-button">🏠 Main Page</a>
 
                 <!-- Next article -->
                 {% if current_next %}
@@ -806,7 +806,7 @@
                             {% break %}
                         {% endif %}
                     {% endfor %}
-                    <a href="/test/knowledge/{{ current_next }}" class="nav-button next">
+                    <a href="/pwa-test/knowledge/{{ current_next }}" class="nav-button next">
                         {{ next_article.title | split: '. ' | first }} →
                     </a>
                 {% else %}
@@ -817,7 +817,7 @@
             <!-- Fallback for articles without navigation -->
             <div class="article-navigation">
                 <div class="nav-button nav-disabled">← Previous</div>
-                <a href="/test/" class="nav-button home-button">🏠 Main Page</a>
+                <a href="/pwa-test/" class="nav-button home-button">🏠 Main Page</a>
                 <div class="nav-button nav-disabled">Next →</div>
             </div>
             {% endif %}
@@ -836,7 +836,7 @@
                             {% break %}
                         {% endif %}
                     {% endfor %}
-                    <a href="/test/knowledge/{{ current_prev }}" class="nav-button prev">
+                    <a href="/pwa-test/knowledge/{{ current_prev }}" class="nav-button prev">
                         ← {{ prev_article.title | split: '. ' | first }}
                     </a>
                 {% else %}
@@ -844,7 +844,7 @@
                 {% endif %}
 
                 <!-- Home -->
-                <a href="/test/" class="nav-button home-button">🏠 Main Page</a>
+                <a href="/pwa-test/" class="nav-button home-button">🏠 Main Page</a>
 
                 <!-- Next article -->
                 {% if current_next %}
@@ -855,7 +855,7 @@
                             {% break %}
                         {% endif %}
                     {% endfor %}
-                    <a href="/test/knowledge/{{ current_next }}" class="nav-button next">
+                    <a href="/pwa-test/knowledge/{{ current_next }}" class="nav-button next">
                         {{ next_article.title | split: '. ' | first }} →
                     </a>
                 {% else %}
@@ -866,7 +866,7 @@
             <!-- Fallback for articles without navigation -->
             <div class="article-navigation">
                 <div class="nav-button nav-disabled">← Previous</div>
-                <a href="/test/" class="nav-button home-button">🏠 Main Page</a>
+                <a href="/pwa-test/" class="nav-button home-button">🏠 Main Page</a>
                 <div class="nav-button nav-disabled">Next →</div>
             </div>
             {% endif %}
