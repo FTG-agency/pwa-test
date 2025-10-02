@@ -2,8 +2,8 @@
   "name": "Private Management - База знаний",
   "short_name": "Private Management",
   "description": "Структурированная база знаний по разработке ПО, бизнес-процессам и управлению проектами",
-  "start_url": "/pwa-test/",
-  "scope": "/pwa-test/",
+  "start_url": "/test/",
+  "scope": "/test/",
   "icons": [
     {
       "src": "./web-app-manifest-192x192.png",

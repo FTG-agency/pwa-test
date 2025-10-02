@@ -2,8 +2,8 @@
 title: Private Management - База знаний
 description: Структурированная база знаний для управления проектами и исследования продуктов
 author: Leo Pavlinskiy
-baseurl: "/pwa-test"
-url: "https://ftg-agency.github.io"
+baseurl: "/test"
+url: "https://leopavlinskiy.github.io"
 
 # Jekyll settings
 markdown: kramdown
